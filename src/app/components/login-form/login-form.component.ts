@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { LoginService } from 'src/app/services/login-service/login.service';
+import { AuthDataStorage } from 'src/app/security/auth-data-storage';
 
 @Component({
   selector: 'app-login-form',
@@ -6,16 +8,33 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-
-  @Output() userEventEmitter = new EventEmitter();
   
-  error1 = '';
+  error = '';
   username: string;
   password: string;
 
-  constructor() { }
+  constructor(private authDataStorage: AuthDataStorage, private service: LoginService) { }
 
   ngOnInit() {
+  }
+  
+  logIn(): void {
+    this.service.login(this.username, this.password).subscribe(
+      response => {
+        let jwtToken = response.headers.get('Authorization');
+        this.authDataStorage.setJwtToken(jwtToken);
+        console.log("User has logged in");
+      },
+      err => {
+        this.error = err;
+      });
+  }
+
+  @HostListener('document:keypress', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    if (event.keyCode === 13) {
+      this.logIn();
+    }
   }
 
 }
