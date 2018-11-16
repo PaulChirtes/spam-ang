@@ -1,0 +1,29 @@
+<div class = "body">
+  <div class="container">
+    <mat-toolbar color="dark">Register</mat-toolbar>
+  <div class="register-container">
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Password" type="password">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-select placeholder="User type">
+        <mat-option value="option">Client</mat-option>
+        <mat-option value="option">Provider</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button (click)="register()" mat-flat-button class="register-button">
+      Submit
+    </button>
+  </div>
+</div>
+</div>
