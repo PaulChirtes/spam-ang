@@ -8,25 +8,25 @@
 
   <div class="register-container">
     <mat-form-field>
-      <input matInput placeholder="Name">
+      <input matInput [(ngModel)]="name" placeholder="Name">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Email">
+      <input matInput [(ngModel)]="email" placeholder="Email">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Phone No">
-    </mat-form-field>
-
-
-    <mat-form-field>
-      <input matInput placeholder="Password" type="password">
+      <input matInput [(ngModel)]="phoneNo" placeholder="Phone No">
     </mat-form-field>
 
 
     <mat-form-field>
-      <mat-select placeholder="User type">
+      <input matInput [(ngModel)]="password" placeholder="Password" type="password">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-select placeholder="User type" (change) = "selected($event)">
         <mat-option value="option">Client</mat-option>
         <mat-option value="option">Provider</mat-option>
       </mat-select>
