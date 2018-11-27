@@ -8,7 +8,7 @@ import { AuthDataStorage } from 'src/app/security/auth-data-storage';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  
+
   error = '';
   username: string;
   password: string;
@@ -17,13 +17,13 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   logIn(): void {
     this.service.login(this.username, this.password).subscribe(
       response => {
-        let jwtToken = response.headers.get('Authorization');
+        const jwtToken = response.headers.get('Authorization');
         this.authDataStorage.setJwtToken(jwtToken);
-        console.log("User has logged in");
+        console.log('User has logged in');
       },
       err => {
         this.error = err;
