@@ -1,0 +1,39 @@
+@import '../../../assets/variables.scss';
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.header2 {
+    position: sticky;
+    top:95px;
+    z-index:50;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: $light-grey;
+    height: 100px;
+    h2{
+        color: $dark-blue;
+    }
+  }
+
+  .img{
+    margin: 60px;
+    background-image: url("../../../assets/images/i1.png");
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+}  
+.job-list{
+    //flex-grow: 1;
+    top: 195px;
+    margin-top: 1%;
+    
+}
+.job-card{
+    height: 15%;
+}

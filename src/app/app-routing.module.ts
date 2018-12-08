@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { LoginService } from './services/login-service/login.service';
+import { JobBrowsingComponent } from './components/job-browsing/job-browsing.component';
 
 const routes: Routes = [
     {
@@ -16,8 +17,12 @@ const routes: Routes = [
     },
     {
       path: 'dashboard',
-      loadChildren: './shared/components/dashboard/dashboard.module#DashboardModule',
+      loadChildren: './components/dashboard/dashboard.module#DashboardModule',
       pathMatch: 'full',
+    },
+    {
+      path: 'jobs',
+      component: JobBrowsingComponent
     }
   ];
     @NgModule({
