@@ -4,31 +4,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import {
-  MatButtonModule,
-  MatFormFieldModule,
-  MatAutocompleteModule,
-  MatInputModule,
-  MatSelectModule,
-  MatToolbarModule
-} from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
+  MatToolbarModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JobCardComponent } from './components/job-card/job-card/job-card.component';
+import { SharedModule } from './shared/shared.module';
+import { JobBrowsingComponent } from './components/job-browsing/job-browsing.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
+    JobCardComponent,
+    JobBrowsingComponent
+    LoginFormComponent,
     RegisterFormComponent
   ],
   imports: [
+    SharedModule,
     FormsModule,
     AppRoutingModule,
     BrowserModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatDividerModule,
     MatAutocompleteModule,
     MatInputModule,
     ReactiveFormsModule,
@@ -37,6 +39,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
     MatSelectModule,
     MatToolbarModule
   ],
+  exports: [SharedModule],
   providers: [],
   bootstrap: [AppComponent]
 })

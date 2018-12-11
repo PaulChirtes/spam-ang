@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { LoginService } from 'src/app/services/login-service/login.service';
 import { AuthDataStorage } from 'src/app/security/auth-data-storage';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login-form',
@@ -8,12 +9,12 @@ import { AuthDataStorage } from 'src/app/security/auth-data-storage';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-
   error = '';
   username: string;
   password: string;
 
-  constructor(private authDataStorage: AuthDataStorage, private service: LoginService) { }
+  constructor(private authDataStorage: AuthDataStorage, private service: LoginService,
+    public router : Router) { }
 
   ngOnInit() {
   }
@@ -21,9 +22,10 @@ export class LoginFormComponent implements OnInit {
   logIn(): void {
     this.service.login(this.username, this.password).subscribe(
       response => {
-        const jwtToken = response.headers.get('Authorization');
+        let jwtToken = response.headers.get('Authorization');
         this.authDataStorage.setJwtToken(jwtToken);
-        console.log('User has logged in');
+        console.log("User has logged in");
+        this.router.navigate(['/dashboard']);
       },
       err => {
         this.error = err;
