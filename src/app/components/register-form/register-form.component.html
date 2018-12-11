@@ -1,0 +1,39 @@
+<div class = "body">
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+      </div>
+      <mat-toolbar color="dark" class="subtitle">Register</mat-toolbar>
+    </div>
+
+  <div class="register-container">
+    <mat-form-field>
+      <input matInput [(ngModel)]="name" placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="email" placeholder="Email">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="phoneNo" placeholder="Phone No">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="password" placeholder="Password" type="password">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-select placeholder="User type" (change) = "selected($event)">
+        <mat-option value="option">Client</mat-option>
+        <mat-option value="option">Provider</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button (click)="register()" mat-flat-button class="register-button">
+      Submit
+    </button>
+  </div>
+</div>
+</div>

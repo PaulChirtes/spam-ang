@@ -9,7 +9,6 @@ import { Router } from '@angular/router'
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  
   error = '';
   username: string;
   password: string;
@@ -19,7 +18,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   logIn(): void {
     this.service.login(this.username, this.password).subscribe(
       response => {

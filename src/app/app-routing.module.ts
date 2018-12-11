@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { LoginService } from './services/login-service/login.service';
 import { JobBrowsingComponent } from './components/job-browsing/job-browsing.component';
+import {RegisterFormComponent} from './components/register-form/register-form.component';
 
 const routes: Routes = [
     {
@@ -23,7 +24,11 @@ const routes: Routes = [
     {
       path: 'jobs',
       component: JobBrowsingComponent
-    }
+    },
+  {
+    path: 'register',
+    component: RegisterFormComponent
+  }
   ];
     @NgModule({
         imports: [ RouterModule.forRoot(routes)],
