@@ -19,7 +19,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
     AppComponent,
     LoginFormComponent,
     JobCardComponent,
-    JobBrowsingComponent
+    JobBrowsingComponent,
     LoginFormComponent,
     RegisterFormComponent
   ],
