@@ -13,4 +13,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToAllJobs() {
+    this.router.navigate(['/jobs']);
+  }
+
 }
