@@ -5,6 +5,7 @@ import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { LoginService } from './services/login-service/login.service';
 import { JobBrowsingComponent } from './components/job-browsing/job-browsing.component';
 import {RegisterFormComponent} from './components/register-form/register-form.component';
+import { AddJobComponent } from './components/add-job/add-job.component';
 
 const routes: Routes = [
     {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterFormComponent
+  },
+  {
+    path: 'addJob',
+    component: AddJobComponent
   }
   ];
     @NgModule({

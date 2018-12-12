@@ -14,28 +14,37 @@ export class JobBrowsingComponent implements OnInit {
       offeredBy:"Company 1",
       description: "This is a random long long description if you read this I promise it makes no sense it's just blabla for the moqueup yay have fun reading this mf. WE ARE HIRING -I tried.",
       datePublished: "12.08.2018",
-      photo: "../../../assets/images/job-image-moque.png"
+      photo: "../../../assets/images/job-image-moque.png",
+      owner: "me",
+      asignee: "CLIENT"
+
     },
     {
       title: "Moque Job 2",
       offeredBy:"Company 2",
       description: "This is a random long long description if you read this I promise it makes no sense it's just blabla for the moqueup yay have fun reading this mf. WE ARE HIRING -I tried.",
       datePublished: "12.08.2018",
-      photo: "../../../assets/images/job-image-moque.png"
+      photo: "../../../assets/images/job-image-moque.png",
+      owner: "me",
+      asignee: "CLIENT"
     },
     {
       title: "Moque Job 3",
       offeredBy:"Company 3",
       description: "This is a random long long description if you read this I promise it makes no sense it's just blabla for the moqueup yay have fun reading this mf. WE ARE HIRING -I tried.",
       datePublished: "12.08.2018",
-      photo: "../../../assets/images/job-image-moque.png"
+      photo: "../../../assets/images/job-image-moque.png",
+      owner: "me",
+      asignee: "CLIENT"
     },
     {
       title: "Moque Job 4",
       offeredBy:"Company 4",
       description: "This is a random long long description if you read this I promise it makes no sense it's just blabla for the moqueup yay have fun reading this mf. WE ARE HIRING -I tried.",
       datePublished: "12.08.2018",
-      photo: "../../../assets/images/job-image-moque.png"
+      photo: "../../../assets/images/job-image-moque.png",
+      owner: "me",
+      asignee: "CLIENT"
     }
   ]
   constructor() { }

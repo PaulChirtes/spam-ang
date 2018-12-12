@@ -1,0 +1,36 @@
+<div class = "body">
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+      </div>
+      <mat-toolbar color="dark" class="subtitle">Create Job</mat-toolbar>
+    </div>
+
+  <div class="register-container">
+    <mat-form-field>
+      <input matInput [(ngModel)]="title" placeholder="Job Name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="description" placeholder="description">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="offeredBy" placeholder="Company">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [(ngModel)]="owner" placeholder="Added by">
+    </mat-form-field>
+
+    <!-- TODO: -->
+    <!-- Use a datepicker
+    Make possible to upload an image -->
+
+    <button (click)="createJob()" mat-flat-button class="register-button">
+      Create
+    </button>
+  </div>
+</div>
+</div>
+
