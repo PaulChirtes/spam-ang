@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../../shared/data-types/User';
+import {Skill} from '../../shared/data-types/Skill';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,7 +11,8 @@ import {User} from '../../shared/data-types/User';
 export class UserProfileComponent implements OnInit {
 
   image: string;
-  skills: string[] = [];
+  skillFormControl = new FormControl();
+  skillList: Skill[] = [];
   user: User = new User();
   url: string = "assets/images/user.png";
   name: string;
@@ -46,5 +49,21 @@ export class UserProfileComponent implements OnInit {
     this.url= path;
     this.image = path;
   }
+
+  submit(): void {
+    let currentSkill: Skill = new Skill();
+    currentSkill.text = this.skillFormControl.value;
+    this.skillList.push(currentSkill);
+
+    this.skillFormControl.setValue('');
+  }
+
+  deleteSkill(s: Skill): void {
+    const index = this.skillList.indexOf(s);
+    if(index >= 0){
+      this.skillList.splice(index, 1);
+    }
+  }
+
 
 }

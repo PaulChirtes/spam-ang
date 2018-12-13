@@ -1,5 +1,6 @@
 <!--<app-header></app-header>-->
 <div class = "body">
+  <div class="main">
 <div class="flex">
   <mat-toolbar color="dark" class="subtitle">Edit profile</mat-toolbar>
 
@@ -19,15 +20,10 @@
       <input matInput [(ngModel)]="phoneNo" placeholder="Phone Number">
       </mat-form-field>
 
-
-
-
     </div>
 
-
-
   <form class="event-creation-display">
-    <div class="fileInput" matTooltip="Click to upload photo" matTooltipPosition="above">
+    <div class="fileInput" matTooltip="Click to upload photo">
       <input type="file" (change)="onFileSelected($event)"  id="file-input">
       <label for="file-input">
         <img [src]="url">
@@ -35,5 +31,34 @@
     </div>
   </form>
 
+
+  </div>
+
+
+    <div class="skills">
+
+      <div class="column">
+        <form class="skill-form">
+          <mat-form-field class="skill-input">
+            <input matInput #questionInput type="text" placeholder="New skill" name="skillText"
+                   [formControl]="skillFormControl">
+          </mat-form-field>
+        </form>
+        <button (click)="submit()" mat-flat-button class="submit-btn" >Add skill</button>
+      </div>
+
+      <div class="column">
+        <div class="view-skills" *ngFor="let skill of skillList">
+          <div class="select-answer">
+            <label class="skill-value"> {{skill.text}} <br> </label>
+          </div>
+          <button mat-icon-button color="primary" (click)="deleteSkill(skill)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
-</div>
+
