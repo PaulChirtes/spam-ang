@@ -6,32 +6,32 @@
       <mat-toolbar color="dark" class="subtitle">Register</mat-toolbar>
     </div>
 
-  <div class="register-container">
+  <div class="register-container" [formGroup]="userForm">
     <mat-form-field>
-      <input matInput [(ngModel)]="name" placeholder="Name">
+      <input matInput formControlName="name" placeholder="Name" required>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [(ngModel)]="email" placeholder="Email">
+      <input matInput formControlName="email" placeholder="Email" required email>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [(ngModel)]="phoneNo" placeholder="Phone No">
-    </mat-form-field>
-
-
-    <mat-form-field>
-      <input matInput [(ngModel)]="password" placeholder="Password" type="password">
+      <input matInput type="tel" pattern="^07(.*)" formControlName="phoneNo" placeholder="Phone Number" maxlength="10" minlength="10">
     </mat-form-field>
 
 
     <mat-form-field>
-      <mat-select placeholder="User type" (change) = "selected($event)">
-        <mat-option value="option">Client</mat-option>
-        <mat-option value="option">Provider</mat-option>
+      <input matInput formControlName="password" placeholder="Password" type="password" required>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-select required placeholder="User type" formControlName="userType">
+        <mat-option value="Client">Client</mat-option>
+        <mat-option value="Provider">Provider</mat-option>
       </mat-select>
     </mat-form-field>
-    <button (click)="register()" mat-flat-button class="register-button">
+    <button type="submit" (click)="register()" [disabled]="!userForm.valid" mat-flat-button class="register-button">
       Submit
     </button>
   </div>
