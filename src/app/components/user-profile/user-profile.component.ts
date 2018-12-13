@@ -10,14 +10,27 @@ export class UserProfileComponent implements OnInit {
 
   image: string;
   skills: string[] = [];
-  user: User;
-  url: string = "assets/images/user.png"
+  user: User = new User();
+  url: string = "assets/images/user.png";
+  name: string;
+  email: string;
+  password: string;
+  phoneNo: string;
 
   constructor() { }
 
   ngOnInit() {
+    if(this.user) {
+      this.setFormInfo(this.user.Username, this.user.Email, this.user.PhoneNumber, this.user.Password);
+    }
   }
 
+  setFormInfo(name, email, phone, pass) {
+    this.name = name;
+    this.email = email;
+    this.phoneNo = phone;
+    this.password = pass;
+  }
   onFileSelected(event) {
     const reader = new FileReader();
     if (event.target.files && event.target.files.length > 0) {
