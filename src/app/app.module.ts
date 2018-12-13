@@ -4,8 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
-  MatToolbarModule } from '@angular/material';
+import {
+  MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
+  MatToolbarModule, MatTooltipModule
+} from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +15,7 @@ import { JobCardComponent } from './components/job-card/job-card/job-card.compon
 import { SharedModule } from './shared/shared.module';
 import { JobBrowsingComponent } from './components/job-browsing/job-browsing.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { RegisterFormComponent } from './components/register-form/register-form.
     JobCardComponent,
     JobBrowsingComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    UserProfileComponent
   ],
   imports: [
     SharedModule,
@@ -30,6 +34,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
     BrowserModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatTooltipModule,
     MatDividerModule,
     MatAutocompleteModule,
     MatInputModule,

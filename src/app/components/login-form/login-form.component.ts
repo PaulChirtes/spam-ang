@@ -25,6 +25,7 @@ export class LoginFormComponent implements OnInit {
         let jwtToken = response.headers.get('Authorization');
         this.authDataStorage.setJwtToken(jwtToken);
         console.log("User has logged in");
+        //set logged in user
         this.router.navigate(['/dashboard']);
       },
       err => {

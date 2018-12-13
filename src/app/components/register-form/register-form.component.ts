@@ -28,6 +28,8 @@ export class RegisterFormComponent implements OnInit {
     user.password = this.password;
     user.userType = this.userType;
     this.service.register(user);
+    //login
+    // //set logged in use
   }
 
   selected(e) {

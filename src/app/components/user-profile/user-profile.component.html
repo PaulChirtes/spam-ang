@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<div class="flex">
+  <mat-toolbar color="dark" class="subtitle">Edit profile</mat-toolbar>
+
+  <!--<div class="container">-->
+
+    <!--<div class="register-container">-->
+      <!--<mat-form-field>-->
+        <!--<input matInput [(ngModel)]="user.username" placeholder="Name">-->
+      <!--</mat-form-field>-->
+
+      <!--<mat-form-field>-->
+        <!--<input matInput [(ngModel)]="user.email" placeholder="Email">-->
+      <!--</mat-form-field>-->
+
+      <!--<mat-form-field>-->
+        <!--<input matInput [(ngModel)]="user.phoneNo" placeholder="Phone No">-->
+      <!--</mat-form-field>-->
+
+
+      <!--<mat-form-field>-->
+        <!--<input matInput [(ngModel)]="user.password" placeholder="Password" type="password">-->
+      <!--</mat-form-field>-->
+
+
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<mat-form-field>-->
+    <!--<input matInput [(ngModel)]="user.phoneNo" placeholder="Phone No">-->
+  <!--</mat-form-field>-->
+
+  <form class="event-creation-display">
+    <div class="fileInput" matTooltip="Click to upload photo">
+      <input type="file" (change)="onFileSelected($event)"  id="file-input">
+      <label for="file-input">
+        <img [src]="url">
+      </label>
+    </div>
+  </form>
+
+
+
+
+</div>
