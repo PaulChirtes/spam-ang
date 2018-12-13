@@ -14,6 +14,9 @@ import { SharedModule } from './shared/shared.module';
 import { JobBrowsingComponent } from './components/job-browsing/job-browsing.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { AddJobComponent } from './components/add-job/add-job.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +43,8 @@ import { AddJobComponent } from './components/add-job/add-job.component';
     BrowserAnimationsModule,
     MatSelectModule,
     MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [SharedModule],
   providers: [],
