@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../../shared/data-types/User';
 import {Observable} from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-const url = 'http://localhost:idk/api/user/user';
 
 
 @Injectable({
@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public register(user: User): Observable<any> {
-    return this.http.post<User>(url, user);
+    return this.http.post<User>(`${environment.apiUrl}/register`, user);
 
   }
 }

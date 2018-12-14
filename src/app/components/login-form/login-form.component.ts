@@ -10,21 +10,22 @@ import { Router } from '@angular/router'
 })
 export class LoginFormComponent implements OnInit {
   error = '';
-  username: string;
+  email: string;
   password: string;
 
   constructor(private authDataStorage: AuthDataStorage, private service: LoginService,
-    public router : Router) { }
+              private router : Router) { }
 
   ngOnInit() {
   }
 
   logIn(): void {
-    this.service.login(this.username, this.password).subscribe(
+    this.service.login(this.email, this.password).subscribe(
       response => {
         let jwtToken = response.headers.get('Authorization');
         this.authDataStorage.setJwtToken(jwtToken);
         console.log("User has logged in");
+        //set logged in user
         this.router.navigate(['/dashboard']);
       },
       err => {
@@ -39,4 +40,7 @@ export class LoginFormComponent implements OnInit {
     }
   }
 
+  private goToRegister() {
+    this.router.navigate(["/register"]);
+  }
 }

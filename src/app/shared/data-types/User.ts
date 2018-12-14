@@ -1,8 +1,10 @@
+import { UserType } from "./user-type.enum";
+
 export class User {
-  userID: string;
-  username: string;
-  email: string;
-  password: string;
-  userType: string;
-  phoneNo: string;
+  Id: number;
+  Username: string;
+  Email: string;
+  Password: string;
+  UserType: UserType;
+  PhoneNumber: string;
 }
