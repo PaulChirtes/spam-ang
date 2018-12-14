@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthDataStorage } from 'src/app/security/auth-data-storage';
+
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(private authDataStorage : AuthDataStorage, public router: Router) {}
+  
 
   ngOnInit() {
   }
@@ -21,5 +24,12 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
+  isLoggedInH() {
+    return this.authDataStorage.isLoggedIn();
+  }
 
+  Logout()
+  {
+    this.router.navigate(['/dashboard']);
+  }
 }
