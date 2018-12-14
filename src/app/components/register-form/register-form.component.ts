@@ -17,7 +17,7 @@ export class RegisterFormComponent implements OnInit {
   phoneNo: string;
   userType: string;
 
-  private userForm: FormGroup; 
+  private userForm: FormGroup;
 
   constructor(private service: UserService,
               private router : Router) {}

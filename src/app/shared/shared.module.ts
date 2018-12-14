@@ -3,7 +3,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material';
-import {ToastrModule} from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: 
