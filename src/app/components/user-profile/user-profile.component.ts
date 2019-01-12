@@ -25,10 +25,13 @@ export class UserProfileComponent implements OnInit {
   constructor(private userService : UserService) { }
 
   ngOnInit() {
-    this.userService.getUser().subscribe(data=> this.user=data);
-    if(this.user) {
-      this.setFormInfo(this.user.Username, this.user.Email, this.user.PhoneNumber, this.user.Password);
-    }
+    this.userService.getUser().subscribe(data=> {
+         this.user=data
+         if(this.user) {
+            this.setFormInfo(this.user.Username, this.user.Email, this.user.PhoneNumber, this.user.Password);
+          }
+      });
+    
   }
 
   setFormInfo(name, email, phone, pass) {

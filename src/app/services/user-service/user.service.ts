@@ -22,6 +22,7 @@ export class UserService {
   }
 
   public getUser(): Observable<any> {
+    console.log(this.service.getJwtToken());
     const httpOptions = {
       headers: new HttpHeaders({'token': this.service.getJwtToken()})
     };

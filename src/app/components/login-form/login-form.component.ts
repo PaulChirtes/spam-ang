@@ -22,8 +22,9 @@ export class LoginFormComponent implements OnInit {
   logIn(): void {
     this.service.login(this.email, this.password).subscribe(
       response => {
-        let jwtToken = response.headers.get('Authorization');
+        let jwtToken = response.headers.get('token');
         this.authDataStorage.setJwtToken(jwtToken);
+
         console.log("User has logged in");
         //set logged in user
         this.router.navigate(['/dashboard']);
