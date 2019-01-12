@@ -60,5 +60,8 @@
     </div>
 
   </div>
+  <button type="submit" (click)="saveProfile()" [disabled]="!skillFormControl.valid" mat-flat-button class="save-button">
+    Save Profile
+  </button>
 </div>
 
