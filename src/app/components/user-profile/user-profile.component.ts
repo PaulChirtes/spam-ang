@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../shared/data-types/User';
 import {Skill} from '../../shared/data-types/Skill';
 import {FormControl} from '@angular/forms';
+import {UserDetails} from '../../shared/data-types/UserDetails';
+import {UserService} from '../../services/user-service/user.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -20,9 +22,10 @@ export class UserProfileComponent implements OnInit {
   password: string;
   phoneNo: string;
 
-  constructor() { }
+  constructor(private userService : UserService) { }
 
   ngOnInit() {
+    this.userService.getUser().subscribe(data=> this.user=data);
     if(this.user) {
       this.setFormInfo(this.user.Username, this.user.Email, this.user.PhoneNumber, this.user.Password);
     }
@@ -65,5 +68,13 @@ export class UserProfileComponent implements OnInit {
     }
   }
 
+  saveProfile() : void {
+    let userDetails : UserDetails = new UserDetails();
+    userDetails.Email = this.email;
+    userDetails.Username = this.name;
+    userDetails.PhoneNumber = this.phoneNo;
+    userDetails.Id = this.user.Id;
+    this.userService.saveProfile(userDetails);
+  }
 
 }
