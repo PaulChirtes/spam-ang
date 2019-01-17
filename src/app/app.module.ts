@@ -19,9 +19,9 @@ import { AddJobComponent } from './components/add-job/add-job.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { CommonModule } from '@angular/common';
 import {MatListModule} from '@angular/material/list';
 import { ViewJobComponent } from './components/view-job/view-job.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
