@@ -17,4 +17,7 @@ export class AuthDataStorage {
         sessionStorage.clear();
     }
 
+    public isLoggedIn(): boolean{
+        return this.getJwtToken() != "";
+    }
 }

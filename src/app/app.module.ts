@@ -21,6 +21,7 @@ import {MatNativeDateModule} from '@angular/material';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import {MatListModule} from '@angular/material/list';
 import { ViewJobComponent } from './components/view-job/view-job.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -58,7 +59,9 @@ import { ViewJobComponent } from './components/view-job/view-job.component';
     MatListModule,
     MatCardModule
   ],
-  exports: [SharedModule],
+  exports: [SharedModule,
+  CommonModule,
+BrowserModule,],
   providers: [],
   bootstrap: [AppComponent]
 })

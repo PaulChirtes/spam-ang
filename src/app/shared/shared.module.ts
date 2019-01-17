@@ -5,10 +5,12 @@ import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule} from '@angular/material';
 import { ToastrModule } from 'ngx-toastr';
-
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
   imports: 
-  [RouterModule,
+  [CommonModule,
+  RouterModule,
   MatFormFieldModule,
   MatInputModule,
   ToastrModule.forRoot(),
