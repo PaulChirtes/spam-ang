@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from 'src/app/shared/data-types/Job';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-browsing',
@@ -51,9 +52,12 @@ export class JobBrowsingComponent implements OnInit {
       asignee: "CLIENT"
     }
   ]
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit() {
   }
 
+  viewJob(){
+    this.router.navigate(['/viewJob']);
+  }
 }
