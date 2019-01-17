@@ -47,21 +47,21 @@
         <button (click)="submit()" mat-flat-button class="submit-btn" >Add skill</button>
       </div>
 
-      <div class="column">
-        <div class="view-skills" *ngFor="let skill of skillList">
+      <mat-grid-list  cols ="3" rowHeight="50px">
+        <mat-grid-tile class="col view-skills" *ngFor="let skill of skillList">
           <div class="select-answer">
             <label class="skill-value"> {{skill.text}} <br> </label>
           </div>
           <button mat-icon-button color="primary" (click)="deleteSkill(skill)">
             <mat-icon>delete</mat-icon>
           </button>
-        </div>
-      </div>
+        </mat-grid-tile>
+      </mat-grid-list>
     </div>
-
+    <button type="submit" (click)="saveProfile()" [disabled]="!skillFormControl.valid" mat-flat-button class="save-btn">
+      Save Profile
+    </button>
   </div>
-  <button type="submit" (click)="saveProfile()" [disabled]="!skillFormControl.valid" mat-flat-button class="save-button">
-    Save Profile
-  </button>
+
 </div>
 
