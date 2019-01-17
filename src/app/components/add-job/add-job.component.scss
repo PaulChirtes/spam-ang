@@ -65,23 +65,22 @@
   cursor: pointer;}
 
 .logo{
-  margin-top: 20px;
-  float: left;
-  margin-right:380px;
-  background-image: url("../../../assets/images/main-icon.png");
-  height: 60px;
-  width: 70px;
-  background-size: cover;
-  z-index: 1;
+    margin-top: 20px;
+    background-image: url("../../../assets/images/main-icon.png");
+    height: 80px;
+    width: 80px;
+    background-size: cover;
+    float: left;
+    margin-right: 380px;
 }
 
 .subtitle{
 
   position:absolute;
   //z-index: 1;
-  margin-top: 20px;
+  margin-top: 5%;
   float: left;
-  margin-left:60px;
+  margin-left:17%;
 
 }
 

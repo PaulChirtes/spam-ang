@@ -12,7 +12,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput [(ngModel)]="description" placeholder="description">
+      <input matInput [(ngModel)]="description" placeholder="Description">
     </mat-form-field>
 
     <mat-form-field>
@@ -23,8 +23,14 @@
       <input matInput [(ngModel)]="owner" placeholder="Added by">
     </mat-form-field>
 
-    <!-- TODO: -->
-    <!-- Use a datepicker
+    <!-- If we keep start date / end date field we need to add those to the model too -->
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose the starting date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- TODO:
     Make possible to upload an image -->
 
     <button (click)="createJob()" mat-flat-button class="register-button">

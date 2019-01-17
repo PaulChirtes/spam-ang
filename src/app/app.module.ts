@@ -4,8 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
-  MatToolbarModule } from '@angular/material';
+import {
+  MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
+  MatToolbarModule, MatTooltipModule, MatIconModule
+} from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,7 +16,11 @@ import { SharedModule } from './shared/shared.module';
 import { JobBrowsingComponent } from './components/job-browsing/job-browsing.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { AddJobComponent } from './components/add-job/add-job.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +30,8 @@ import { CommonModule } from '@angular/common';
     JobBrowsingComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    AddJobComponent
+    AddJobComponent,
+    UserProfileComponent
   ],
   imports: [
     SharedModule,
@@ -33,6 +40,7 @@ import { CommonModule } from '@angular/common';
     BrowserModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatTooltipModule,
     MatDividerModule,
     MatAutocompleteModule,
     MatInputModule,
@@ -41,7 +49,10 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     MatSelectModule,
     MatToolbarModule,
-    CommonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   exports: [SharedModule,
   CommonModule,
