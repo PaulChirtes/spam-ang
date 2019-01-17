@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../shared/data-types/User';
+import { Router } from '@angular/router';
 import {UserService} from '../../services/user-service/user.service';
 import { UserType } from 'src/app/shared/data-types/user-type.enum';
-import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -17,11 +17,8 @@ export class RegisterFormComponent implements OnInit {
   phoneNo: string;
   userType: string;
 
+  constructor(private service: UserService, public router: Router) {}
   private userForm: FormGroup;
-
-  constructor(private service: UserService,
-              private router : Router) {}
-
 
   ngOnInit() {
     this.userForm = new FormGroup({

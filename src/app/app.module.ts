@@ -19,6 +19,7 @@ import { AddJobComponent } from './components/add-job/add-job.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -53,7 +54,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     MatToolbarModule,
     MatIconModule
   ],
-  exports: [SharedModule],
+  exports: [SharedModule,
+  CommonModule,
+BrowserModule,],
   providers: [],
   bootstrap: [AppComponent]
 })
