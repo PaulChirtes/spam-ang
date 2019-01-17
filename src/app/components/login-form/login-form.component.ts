@@ -13,7 +13,8 @@ export class LoginFormComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private authDataStorage: AuthDataStorage, private service: LoginService,
+  constructor(private authDataStorage: AuthDataStorage,
+              private service: LoginService,
               private router : Router) { }
 
   ngOnInit() {
@@ -24,8 +25,7 @@ export class LoginFormComponent implements OnInit {
       response => {
         let jwtToken = response.headers.get('token');
         this.authDataStorage.setJwtToken(jwtToken);
-
-        console.log("User has logged in");
+        //console.log("User has logged in");
         //set logged in user
         this.router.navigate(['/dashboard']);
       },

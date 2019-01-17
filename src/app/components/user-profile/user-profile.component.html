@@ -13,11 +13,11 @@
       </mat-form-field>
 
       <mat-form-field>
-      <input matInput [(ngModel)]="email" placeholder="Email">
+      <input matInput [(ngModel)]="email" disabled placeholder="Email">
       </mat-form-field>
 
       <mat-form-field>
-      <input matInput [(ngModel)]="phoneNo" placeholder="Phone Number">
+      <input matInput [(ngModel)]="phoneNo" placeholder="Phone Number"  type="tel" pattern="^07(.*)" maxlength="10" minlength="10">
       </mat-form-field>
 
     </div>
@@ -35,7 +35,7 @@
   </div>
 
 
-    <div class="skills">
+    <div *ngIf="isClient" class="skills">
 
       <div class="column">
         <form class="skill-form">
@@ -50,7 +50,7 @@
       <div class="column">
         <div class="view-skills" *ngFor="let skill of skillList">
           <div class="select-answer">
-            <label class="skill-value"> {{skill.text}} <br> </label>
+            <label class="skill-value"> {{skill}} <br> </label>
           </div>
           <button mat-icon-button color="primary" (click)="deleteSkill(skill)">
             <mat-icon>delete</mat-icon>

@@ -21,12 +21,12 @@ export class UserService {
 
   }
 
-  public getUser(): Observable<any> {
+  public getUser(): Observable<UserDetails> {
     console.log(this.service.getJwtToken());
     const httpOptions = {
       headers: new HttpHeaders({'token': this.service.getJwtToken()})
     };
-    return this.http.get(`${environment.apiUrl}/profile`, httpOptions);
+    return this.http.get<UserDetails>(`${environment.apiUrl}/profile`, httpOptions);
   }
 
   public saveProfile(userDetails : UserDetails): Observable<any> {

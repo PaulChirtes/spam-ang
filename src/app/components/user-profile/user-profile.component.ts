@@ -4,6 +4,8 @@ import {Skill} from '../../shared/data-types/Skill';
 import {FormControl} from '@angular/forms';
 import {UserDetails} from '../../shared/data-types/UserDetails';
 import {UserService} from '../../services/user-service/user.service';
+import { UserType } from 'src/app/shared/data-types/user-type.enum';
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-user-profile',
@@ -14,31 +16,34 @@ export class UserProfileComponent implements OnInit {
 
   image: string;
   skillFormControl = new FormControl();
-  skillList: Skill[] = [];
-  user: User = new User();
+  skillList: string[] = [];
+  user: UserDetails = new UserDetails();
   url: string = "assets/images/user.png";
   name: string;
   email: string;
-  password: string;
   phoneNo: string;
+  isClient = false;
 
   constructor(private userService : UserService) { }
 
   ngOnInit() {
     this.userService.getUser().subscribe(data=> {
-         this.user=data
+         this.user = data;
          if(this.user) {
-            this.setFormInfo(this.user.Username, this.user.Email, this.user.PhoneNumber, this.user.Password);
+            this.setFormInfo(this.user.Username, this.user.Email, this.user.PhoneNumber, this.user.Skills);
           }
+          this.isClient = this.user.Type===UserType.Client;
+          console.log(this.user);
+          console.log(UserType.Client);
       });
     
   }
 
-  setFormInfo(name, email, phone, pass) {
+  setFormInfo(name, email, phone, skills) {
     this.name = name;
     this.email = email;
     this.phoneNo = phone;
-    this.password = pass;
+    this.skillList = skills;
   }
   onFileSelected(event) {
     const reader = new FileReader();
@@ -57,14 +62,12 @@ export class UserProfileComponent implements OnInit {
   }
 
   submit(): void {
-    let currentSkill: Skill = new Skill();
-    currentSkill.text = this.skillFormControl.value;
-    this.skillList.push(currentSkill);
+    this.skillList.push(this.skillFormControl.value);
 
     this.skillFormControl.setValue('');
   }
 
-  deleteSkill(s: Skill): void {
+  deleteSkill(s: string): void {
     const index = this.skillList.indexOf(s);
     if(index >= 0){
       this.skillList.splice(index, 1);
@@ -77,7 +80,8 @@ export class UserProfileComponent implements OnInit {
     userDetails.Username = this.name;
     userDetails.PhoneNumber = this.phoneNo;
     userDetails.Id = this.user.Id;
-    this.userService.saveProfile(userDetails);
+    userDetails.Skills = this.isClient ? this.skillList : null;
+    this.userService.saveProfile(userDetails).subscribe(data=>{});
   }
 
 }
