@@ -3,16 +3,21 @@
   <a class="title">Jobs App</a>
   <div class="right-items">
       <div class="form-field-container item">
-          <mat-form-field appearance="outline" class="form-field">
+          <mat-form-field class="form-field">
               <input matInput placeholder="Search">
-              <mat-hint></mat-hint>
           </mat-form-field>
       </div>
-      <button (click)="goToLogin()" mat-flat-button class="button item">
+      <button (click)="goToLogin()" *ngIf="isLoggedInH()" mat-flat-button class="button item">
           Log In
       </button>
-      <button (click)="goToRegister()" mat-flat-button class="button item">
+      <button (click)="goToRegister()" *ngIf="isLoggedInH()" mat-flat-button class="button item">
           Register
+      </button>
+      <button (click)="goToProfile()" *ngIf="!isLoggedInH()" mat-flat-button class ="button item">
+          Profile
+      </button>
+      <button (click)="Logout()" *ngIf="!isLoggedInH()" mat-flat-button class="button item">
+          Logout
       </button>
   </div>
 </div>
