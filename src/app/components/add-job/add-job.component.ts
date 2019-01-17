@@ -18,7 +18,8 @@ export class AddJobComponent implements OnInit {
     asignee: string;
     photo: string;
     title: string;
-    offeredBy: string;
+    type:string;
+    requirements: string[];
     description: string;
     datePublished: string;
 
@@ -31,7 +32,8 @@ export class AddJobComponent implements OnInit {
     this.owner = job.owner;
     this.photo = job.photo;
     this.title = job.title;
-    this.offeredBy = job.offeredBy;
+    this.type = job.type;
+    this.requirements = job.requirements;
     this.description = job.description;
     this.datePublished = job.datePublished;
   }
@@ -39,7 +41,7 @@ export class AddJobComponent implements OnInit {
   isValid(job: Job) {
     return job.datePublished != null &&
     job.description != null &&
-    job.offeredBy != null &&
+    job.requirements != null &&
     job.title != null;
   }
 
@@ -48,7 +50,8 @@ export class AddJobComponent implements OnInit {
     job.owner = this.owner;
     job.photo = this.photo;
     job.title = this.title;
-    job.offeredBy = this.offeredBy;
+    job.type = this.type;
+    job.requirements = this.requirements;
     job.description = this.description;
     job.datePublished = this.datePublished;
     console.log(job);
@@ -62,7 +65,7 @@ export class AddJobComponent implements OnInit {
       });
     }
     else {
-      this.toastr.error('Event ' + job.title + ' was not created. Please input values for all mandatory fields.',"",{
+      this.toastr.error('Job ' + job.title + ' was not created. Please input values for all mandatory fields.',"",{
         "closeButton": true,
         "positionClass": "toast-top-center",
         "tapToDismiss": true});

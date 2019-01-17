@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {
   MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
-  MatToolbarModule, MatTooltipModule, MatIconModule
+  MatToolbarModule, MatTooltipModule, MatIconModule, MatCardModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +20,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { CommonModule } from '@angular/common';
+import {MatListModule} from '@angular/material/list';
+import { ViewJobComponent } from './components/view-job/view-job.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { CommonModule } from '@angular/common';
     LoginFormComponent,
     RegisterFormComponent,
     AddJobComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ViewJobComponent
   ],
   imports: [
     SharedModule,
@@ -52,7 +55,9 @@ import { CommonModule } from '@angular/common';
     MatDatepickerModule,
     MatNativeDateModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule,
+    MatCardModule
   ],
   exports: [SharedModule,
   CommonModule,
