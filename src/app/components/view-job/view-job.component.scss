@@ -1,0 +1,112 @@
+@import '../../../assets/variables.scss';
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.header2 {
+    position: sticky;
+    top:95px;
+    z-index:50;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: $light-grey;
+    height: 100px;
+    h2{
+        color: $dark-blue;
+    }
+  }
+
+  .img{
+    margin: 40px;
+    background-image: url("../../../assets/images/job-search.png");
+    height: 95px;
+    width: 150px;
+    background-size: cover;
+}  
+.container{
+    background-color: $yellow;
+    width: 55%;
+    margin-left:50px;
+    margin-top:40px;
+    height:55%;
+
+
+}
+.info{
+    margin: 50px;
+    color: $dark-blue;
+    font-size: 22px;
+    
+}
+.detail-header{
+    font-size: 22px;
+    color: $dark-blue;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#line{
+    color:$dark-blue;
+    width:750px;
+    margin-left: 25px;
+}
+.list-item{
+    font-size:22px;
+    margin-top: -30px;
+    margin-left: 15px;
+    color: $dark-blue;
+}
+
+.photo{
+    margin-left: 40%;
+    height: 250px;
+    width: 380px;
+}
+
+.job-details{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.button{
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    margin-top:15px;
+    margin-left: 75%;
+    line-height: 1.6;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    width: 30%;
+    text-align: center;
+    height: 35px;
+    background-color: $dark-blue;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+
+  .button:hover {
+    background-color: $dark-blue-hover;
+}
+
+p{
+    margin-top: 30px;
+}
+
+span{
+    font-weight: bold;
+}

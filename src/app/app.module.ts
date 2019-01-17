@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {
   MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
-  MatToolbarModule, MatTooltipModule, MatIconModule
+  MatToolbarModule, MatTooltipModule, MatIconModule, MatCardModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +19,8 @@ import { AddJobComponent } from './components/add-job/add-job.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import {MatListModule} from '@angular/material/list';
+import { ViewJobComponent } from './components/view-job/view-job.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     LoginFormComponent,
     RegisterFormComponent,
     AddJobComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ViewJobComponent
   ],
   imports: [
     SharedModule,
@@ -51,7 +54,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     MatDatepickerModule,
     MatNativeDateModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule,
+    MatCardModule
   ],
   exports: [SharedModule],
   providers: [],
