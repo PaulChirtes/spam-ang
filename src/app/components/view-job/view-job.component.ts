@@ -18,6 +18,7 @@ export class ViewJobComponent implements OnInit {
       var id = params['id'];
       if(id){
         this.jobService.getById(id).subscribe(data=>{
+          console.log(data);
           this.job=data;
           this.job.photo = this.photo;
         })

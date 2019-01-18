@@ -24,6 +24,7 @@
     "@angular/router": "~7.0.0",
     "browser-platform": "^1.0.0",
     "core-js": "^2.5.4",
+    "jwt-decode": "^2.2.0",
     "ng-pick-datetime": "^7.0.0",
     "ngx-toastr": "^9.1.1",
     "rxjs": "~6.3.3",

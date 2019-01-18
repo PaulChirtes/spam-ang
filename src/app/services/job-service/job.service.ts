@@ -23,6 +23,22 @@ export class JobService {
     return this.http.get<Job[]>(url,httpOptions);
   }
 
+  public getAssignedJobs(): Observable<Job[]> {
+    var url = `${environment.apiUrl}/assignedJobs`;
+    var httpOptions = {
+      headers: new HttpHeaders({'token': this.service.getJwtToken()})
+    };
+    return this.http.get<Job[]>(url,httpOptions);
+  }
+
+  public getMyJobs(): Observable<Job[]> {
+    var url = `${environment.apiUrl}/createdJobs`;
+    var httpOptions = {
+      headers: new HttpHeaders({'token': this.service.getJwtToken()})
+    };
+    return this.http.get<Job[]>(url,httpOptions);
+  }
+
   public getById(id: number): Observable<Job>{
     var url = `${environment.apiUrl}/getJob/${id}`;
     var httpOptions = {

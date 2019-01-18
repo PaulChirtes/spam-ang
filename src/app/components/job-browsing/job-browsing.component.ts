@@ -17,10 +17,35 @@ export class JobBrowsingComponent implements OnInit {
               private jobService: JobService) { }
 
   ngOnInit() {
+    var url = this.router.url;
+    if(url==="/jobs"){
+      this.getUnasignedJobs();
+    } else if (url==="/myJobs"){
+      this.getMyJobs();
+    } else if(url=="/assignedJobs"){
+      this.getAssignedJobs();
+    }
+  }
+
+  getAssignedJobs() {
+    this.jobService.getAssignedJobs().subscribe(data => {
+      this.jobs = data;
+      this.jobs.forEach(job => job.photo = this.photo);
+    });
+  }
+
+  getMyJobs(){
+    this.jobService.getMyJobs().subscribe(data => {
+      this.jobs = data;
+      this.jobs.forEach(job => job.photo = this.photo);
+    });
+  }
+
+  private getUnasignedJobs() {
     this.jobService.getJobs().subscribe(data => {
       this.jobs = data;
-      this.jobs.forEach(job=>job.photo=this.photo);
-    })
+      this.jobs.forEach(job => job.photo = this.photo);
+    });
   }
 
   viewJob(id: number){
