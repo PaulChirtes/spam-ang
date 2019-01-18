@@ -7,7 +7,7 @@
     <div class="img5"></div>
     <a (click)="goToAllJobs()" class="view">{{allJobsText}}</a>
     <a (click)="goToAssignedJobs()" *ngIf="!isProvider" class="view">View Assigned jobs</a>
-    <button (click)="goToAddJob()" mat-flat-button class="button item">
+    <button (click)="goToAddJob()" *ngIf="canAdd" mat-flat-button class="button item">
         Add job
     </button>
 </div>

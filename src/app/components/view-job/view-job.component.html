@@ -20,6 +20,6 @@
 </mat-card>
   <div class="right-side">
     <img class="photo" src="{{this.job.photo}}">
-    <div class="button">APPLY</div>
+    <div class="button" *ngIf="canApply" (click)="apply()">APPLY</div>
   </div>
 </div>

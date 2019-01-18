@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   user: any;
   isProvider = false;
   allJobsText = "";
+  canAdd=false;
 
   constructor(public router: Router,
               private authStorage: AuthDataStorage) { }
@@ -23,6 +24,7 @@ export class DashboardComponent implements OnInit {
       this.allJobsText = "view jobs";
     } else if(this.isAdmin()){
       this.allJobsText = "View my jobs";
+      this.canAdd=true;
     } else {
       this.allJobsText = "View Unassigned jobs";
     }

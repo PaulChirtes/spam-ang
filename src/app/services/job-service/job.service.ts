@@ -43,11 +43,17 @@ export class JobService {
 
   public postJob(job: Job) {
     var url = `${environment.apiUrl}/unassignedJobs`;
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
+    var httpOptions = {
+      headers: new HttpHeaders({'token': this.service.getJwtToken()})
     };
     return this.http.post(url, job, httpOptions);
+  }
+
+  public apply(id:number){
+    var url = `${environment.apiUrl}/applyToJob/${id}`;
+    var httpOptions = {
+      headers: new HttpHeaders({'token': this.service.getJwtToken()})
+    };
+    return this.http.put(url, null, httpOptions);
   }
 }
