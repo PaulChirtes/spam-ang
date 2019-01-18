@@ -18,6 +18,6 @@ export class AuthDataStorage {
     }
 
     public isLoggedIn(): boolean{
-        return this.getJwtToken() != "";
+        return this.getJwtToken()!=null;
     }
 }
