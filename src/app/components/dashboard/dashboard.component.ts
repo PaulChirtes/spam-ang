@@ -30,9 +30,6 @@ export class DashboardComponent implements OnInit {
     }
   }  
 
-  
-
-  //TO DO: needs to be tested with backend and if works it will be used for add button
   isAdmin(): boolean {
     return this.user!=null && this.user.UserType === UserType.Provider;
   }
