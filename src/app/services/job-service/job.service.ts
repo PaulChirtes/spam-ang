@@ -17,10 +17,7 @@ export class JobService {
 
   public getJobs(): Observable<Job[]> {
     var url = `${environment.apiUrl}/unassignedJobs`;
-    var httpOptions = {
-      headers: new HttpHeaders({'token': this.service.getJwtToken()})
-    };
-    return this.http.get<Job[]>(url,httpOptions);
+    return this.http.get<Job[]>(url);
   }
 
   public getAssignedJobs(): Observable<Job[]> {
@@ -41,10 +38,7 @@ export class JobService {
 
   public getById(id: number): Observable<Job>{
     var url = `${environment.apiUrl}/getJob/${id}`;
-    var httpOptions = {
-      headers: new HttpHeaders({'token': this.service.getJwtToken()})
-    };
-    return this.http.get<Job>(url,httpOptions);
+    return this.http.get<Job>(url);
   }
 
   public postJob(job: Job) {

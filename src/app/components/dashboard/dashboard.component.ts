@@ -18,9 +18,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authStorage.getUser();
-    console.log(this.user);
     this.isProvider = this.user!=null && this.user.UserType === UserType.Provider;
-    console.log(this.isProvider);
     if(this.user==null){
       this.allJobsText = "view jobs";
     } else if(this.isAdmin()){

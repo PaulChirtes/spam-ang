@@ -27,7 +27,7 @@ export class JobBrowsingComponent implements OnInit {
     }
   }
 
-  getAssignedJobs() {
+  getAssignedJobs() {    
     this.jobService.getAssignedJobs().subscribe(data => {
       this.jobs = data;
       this.jobs.forEach(job => job.photo = this.photo);
