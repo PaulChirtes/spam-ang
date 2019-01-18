@@ -18,7 +18,7 @@
         </mat-list> -->
       <!-- <p><span>Published: </span>{{this.job.datePublished}}</p> -->
   </div>
-  <div class="info" *ngIf="job.Assigne">
+  <div class="info" *ngIf="job.Assigne!=null">
     <p><span>Assigned to: </span>{{job.Assigne?.UserName}}</p>
     <p><span>Assigne email: </span>{{job.Assigne?.Email}}</p>
     <p *ngIf="job.Assigne?.PhoneNumber && job.Assigne?.PhoneNumber!=''"><span>Assigne number: </span>{{job.Assigne?.PhoneNumber}}</p>

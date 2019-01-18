@@ -33,4 +33,8 @@ export class HeaderComponent implements OnInit {
     this.authDataStorage.clearAuthData();
     this.router.navigate(['/login']);
   }
+
+  goToDashboard(){
+    this.router.navigate(["/dashboard"]);
+  }
 }

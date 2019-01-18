@@ -42,7 +42,7 @@ export class JobService {
   }
 
   public postJob(job: Job) {
-    var url = `${environment.apiUrl}/unassignedJobs`;
+    var url = `${environment.apiUrl}/job`;
     var httpOptions = {
       headers: new HttpHeaders({'token': this.service.getJwtToken()})
     };

@@ -24,6 +24,7 @@ export class ViewJobComponent implements OnInit {
       if(id){
         this.jobService.getById(id).subscribe(data=>{
           this.job=data;
+          console.log(this.job);
           this.job.photo = this.photo;
         })
       }
