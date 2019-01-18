@@ -90,6 +90,40 @@
     padding: 50px;
 }
 
+.button {
+  
+    font-size: 16px;
+    color: #fff;
+    margin: 20px;
+    line-height: 1.2;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    width: 10%;
+    height: 35px;
+    background-color: $dark-blue;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border: $dark-blue;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+
+  .button:hover {
+    background-color: $dark-blue-hover;
+}
+
+  .item {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
 
 
 
