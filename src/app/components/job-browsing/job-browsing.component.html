@@ -4,7 +4,7 @@
   <h2>Jobs for {{this.category}}</h2>
 </div>
 <div class="job-list">
-  <div class="job-card" *ngFor="let job of this.jobs">
+  <div class="job-card" *ngFor="let job of this.jobs" (click)="viewJob()">
     <app-job-card [job]="job"></app-job-card>
   </div>
 </div>

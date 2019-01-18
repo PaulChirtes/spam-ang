@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {
   MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
-  MatToolbarModule, MatTooltipModule, MatIconModule, MatGridListModule
+  MatToolbarModule, MatTooltipModule, MatIconModule, MatCardModule, MatGridListModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +19,10 @@ import { AddJobComponent } from './components/add-job/add-job.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import {MatListModule} from '@angular/material/list';
+import { ViewJobComponent } from './components/view-job/view-job.component';
+import { CommonModule } from '@angular/common';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 
 @NgModule({
@@ -30,7 +34,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     LoginFormComponent,
     RegisterFormComponent,
     AddJobComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ViewJobComponent,
+    ErrorPageComponent
   ],
   imports: [
     SharedModule,
@@ -47,14 +53,18 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     HttpClientModule,
     BrowserAnimationsModule,
     MatSelectModule,
-    MatToolbarModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatToolbarModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule,
+    MatListModule,
+    MatCardModule
   ],
-  exports: [SharedModule],
+  exports: [SharedModule,
+  CommonModule,
+BrowserModule,],
   providers: [],
   bootstrap: [AppComponent]
 })

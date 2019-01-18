@@ -7,6 +7,9 @@ import { JobBrowsingComponent } from './components/job-browsing/job-browsing.com
 import {RegisterFormComponent} from './components/register-form/register-form.component';
 import { AddJobComponent } from './components/add-job/add-job.component';
 import {UserProfileComponent} from './components/user-profile/user-profile.component';
+import { ViewJobComponent } from './components/view-job/view-job.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+
 
 const routes: Routes = [
     {
@@ -38,9 +41,20 @@ const routes: Routes = [
   {
     path: 'profile',
     component: UserProfileComponent
+  },
+  {
+    path: 'viewJob',
+    component: ViewJobComponent
+  },
+  {
+    path: '404',
+    component: ErrorPageComponent
+  },
+  {
+  path: '**', 
+  redirectTo: '/404'
   }
-
-  ];
+];
     @NgModule({
         imports: [ RouterModule.forRoot(routes)],
         exports: [RouterModule]
