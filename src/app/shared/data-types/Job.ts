@@ -1,12 +1,10 @@
 import { User } from "./User";
+import { UserDetails } from "./UserDetails";
 
 export class Job{
-    owner: string;
-    asignee: string;
+    Id: number;
+    asignee: UserDetails;
     photo: string;
-    title: string;
-    type: string;
-    requirements: string[];
-    description: string;
-    datePublished: string;
+    Title: string;
+    Description: string;
 }

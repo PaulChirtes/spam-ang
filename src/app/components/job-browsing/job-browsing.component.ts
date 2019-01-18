@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from 'src/app/shared/data-types/Job';
 import { Router } from '@angular/router';
+import { JobService } from 'src/app/services/job-service/job.service';
 
 @Component({
   selector: 'app-job-browsing',
@@ -8,56 +9,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./job-browsing.component.scss']
 })
 export class JobBrowsingComponent implements OnInit {
-  category="moque category"
-  jobs: Job[]=[
-    {
-      title: "Moque Job 1",
-      owner:"Company 1",
-      description: "This is a random long long description if you read this I promise it makes no sense it's just blabla for the moqueup yay have fun reading this mf. WE ARE HIRING -I tried.",
-      datePublished: "12.08.2018",
-      photo: "../../../assets/images/job-image-moque.png",
-      requirements: ["awesomeness"],
-      type: "part-time",
-      asignee: "CLIENT"
-
-    },
-    {
-      title: "Moque Job 2",
-      owner:"Company 2",
-      description: "This is a random long long description if you read this I promise it makes no sense it's just blabla for the moqueup yay have fun reading this mf. WE ARE HIRING -I tried.",
-      datePublished: "12.08.2018",
-      photo: "../../../assets/images/job-image-moque.png",
-      requirements: ["awesomeness"],
-      type: "part-time",
-      asignee: "CLIENT"
-    },
-    {
-      title: "Moque Job 3",
-      owner:"Company 3",
-      description: "This is a random long long description if you read this I promise it makes no sense it's just blabla for the moqueup yay have fun reading this mf. WE ARE HIRING -I tried.",
-      datePublished: "12.08.2018",
-      photo: "../../../assets/images/job-image-moque.png",
-      requirements: ["awesomeness"],
-      type: "part-time",
-      asignee: "CLIENT"
-    },
-    {
-      title: "Moque Job 4",
-      owner:"Company 4",
-      description: "This is a random long long description if you read this I promise it makes no sense it's just blabla for the moqueup yay have fun reading this mf. WE ARE HIRING -I tried.",
-      datePublished: "12.08.2018",
-      photo: "../../../assets/images/job-image-moque.png",
-      requirements: ["awesomeness"],
-      type: "part-time",
-      asignee: "CLIENT"
-    }
-  ]
-  constructor(public router:Router) { }
+  category="";
+  photo= "../../../assets/images/job-image-moque.png";
+  jobs: Job[]=new Array<Job>();
+  
+  constructor(public router:Router,
+              private jobService: JobService) { }
 
   ngOnInit() {
+    this.jobService.getJobs().subscribe(data => {
+      this.jobs = data;
+      this.jobs.forEach(job=>job.photo=this.photo);
+    })
   }
 
-  viewJob(){
-    this.router.navigate(['/viewJob']);
+  viewJob(id: number){
+    this.router.navigate(['/viewJob/'+id.toString()]);
   }
 }

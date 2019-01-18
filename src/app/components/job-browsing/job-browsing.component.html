@@ -1,10 +1,10 @@
 <app-header></app-header>
 <div class="header2">
   <div class="img"></div>
-  <h2>Jobs for {{this.category}}</h2>
+  <h2>Jobs</h2>
 </div>
 <div class="job-list">
-  <div class="job-card" *ngFor="let job of this.jobs" (click)="viewJob()">
+  <div class="job-card" *ngFor="let job of this.jobs" (click)="viewJob(job.Id)">
     <app-job-card [job]="job"></app-job-card>
   </div>
 </div>

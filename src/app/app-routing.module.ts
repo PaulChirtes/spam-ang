@@ -41,7 +41,7 @@ const routes: Routes = [
     component: UserProfileComponent
   },
   {
-    path: 'viewJob',
+    path: 'viewJob/:id',
     component: ViewJobComponent
   },
   {
