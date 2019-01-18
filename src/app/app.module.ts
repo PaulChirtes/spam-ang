@@ -22,6 +22,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import {MatListModule} from '@angular/material/list';
 import { ViewJobComponent } from './components/view-job/view-job.component';
 import { CommonModule } from '@angular/common';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CommonModule } from '@angular/common';
     RegisterFormComponent,
     AddJobComponent,
     UserProfileComponent,
-    ViewJobComponent
+    ViewJobComponent,
+    ErrorPageComponent
   ],
   imports: [
     SharedModule,
