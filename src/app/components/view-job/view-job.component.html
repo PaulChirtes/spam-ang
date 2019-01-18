@@ -1,21 +1,21 @@
 <app-header></app-header>
 <div class="header2">
   <div class="img"></div>
-  <h2>{{this.job.title}}</h2>
+  <h2>{{job.Title}}</h2>
 </div>
 <div class="job-details">
   <mat-card class="container">
     <h3 class="detail-header">Job Details</h3>
     <mat-divider id="line"></mat-divider>
   <div class="info">
-      <p><span>Offered by: </span>{{this.job.owner}}</p>
-      <p><span>Job type: </span>{{this.job.type}}</p>
-      <p><span>Job description: </span>{{this.job.description}}</p>
-      <p><span>Requirements: </span></p>
+      <p><span>Offered by: </span>{{job.Owner?.UserName}}</p>
+      <!-- <p><span>Job type: </span>{{this.job.type}}</p> -->
+      <p><span>Job description: </span>{{job.Description}}</p>
+      <!-- <p><span>Requirements: </span></p>
       <mat-list class="requirements">
           <mat-list-item class="list-item" *ngFor="let req of this.job.requirements">{{req}}</mat-list-item>
-        </mat-list>
-      <p><span>Published: </span>{{this.job.datePublished}}</p>
+        </mat-list> -->
+      <!-- <p><span>Published: </span>{{this.job.datePublished}}</p> -->
   </div>
 </mat-card>
   <div class="right-side">

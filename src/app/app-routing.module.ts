@@ -12,7 +12,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 const routes: Routes = [
     {
       path: '',
-      redirectTo: 'login',
+      redirectTo: 'dashboard',
       pathMatch: 'full',
     },
     {
@@ -28,6 +28,14 @@ const routes: Routes = [
       path: 'jobs',
       component: JobBrowsingComponent
     },
+    {
+      path: 'myJobs',
+      component: JobBrowsingComponent
+    },
+    {
+      path: 'assignedJobs',
+      component: JobBrowsingComponent
+    },
   {
     path: 'register',
     component: RegisterFormComponent
@@ -41,7 +49,7 @@ const routes: Routes = [
     component: UserProfileComponent
   },
   {
-    path: 'viewJob',
+    path: 'viewJob/:id',
     component: ViewJobComponent
   },
   {
