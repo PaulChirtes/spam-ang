@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   user: any;
   isProvider = false;
   allJobsText = "";
+  canAdd=false;
 
   constructor(public router: Router,
               private authStorage: AuthDataStorage) { }
@@ -23,14 +24,12 @@ export class DashboardComponent implements OnInit {
       this.allJobsText = "view jobs";
     } else if(this.isAdmin()){
       this.allJobsText = "View my jobs";
+      this.canAdd=true;
     } else {
       this.allJobsText = "View Unassigned jobs";
     }
   }  
 
-  
-
-  //TO DO: needs to be tested with backend and if works it will be used for add button
   isAdmin(): boolean {
     return this.user!=null && this.user.UserType === UserType.Provider;
   }

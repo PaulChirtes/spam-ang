@@ -9,7 +9,8 @@
     <mat-divider id="line"></mat-divider>
   <div class="info">
       <p><span>Offered by: </span>{{job.Owner?.UserName}}</p>
-      <!-- <p><span>Job type: </span>{{this.job.type}}</p> -->
+      <p><span>Owner email: </span>{{job.Owner?.Email}}</p>
+      <p *ngIf="job.Owner?.PhoneNumber && job.Owner?.PhoneNumber!=''"><span>Owner number: </span>{{job.Owner?.PhoneNumber}}</p>
       <p><span>Job description: </span>{{job.Description}}</p>
       <!-- <p><span>Requirements: </span></p>
       <mat-list class="requirements">
@@ -17,9 +18,14 @@
         </mat-list> -->
       <!-- <p><span>Published: </span>{{this.job.datePublished}}</p> -->
   </div>
+  <div class="info" *ngIf="job.Assigne!=null">
+    <p><span>Assigned to: </span>{{job.Assigne?.UserName}}</p>
+    <p><span>Assigne email: </span>{{job.Assigne?.Email}}</p>
+    <p *ngIf="job.Assigne?.PhoneNumber && job.Assigne?.PhoneNumber!=''"><span>Assigne number: </span>{{job.Assigne?.PhoneNumber}}</p>
+  </div>
 </mat-card>
   <div class="right-side">
     <img class="photo" src="{{this.job.photo}}">
-    <div class="button">APPLY</div>
+    <div class="button" *ngIf="canApply" (click)="apply()">APPLY</div>
   </div>
 </div>
