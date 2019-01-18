@@ -11,8 +11,10 @@ import { AuthDataStorage } from 'src/app/security/auth-data-storage';
 export class HeaderComponent implements OnInit {
 
   constructor(private authDataStorage : AuthDataStorage, public router: Router) {}
+  private isLoggedIn = false;
 
   ngOnInit() {
+    this.isLoggedIn = this.authDataStorage.isLoggedIn();
   }
 
   goToLogin() {
@@ -27,12 +29,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/profile']);
   }
 
-  isLoggedInH() : boolean {
-    return this.authDataStorage.isLoggedIn();
-  }
-
-  Logout()
-  {
-    this.router.navigate(['/dashboard']);
+  Logout(){
+    this.authDataStorage.clearAuthData();
+    this.router.navigate(['/login']);
   }
 }

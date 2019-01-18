@@ -1,8 +1,6 @@
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CanActivate } from '@angular/router/src/utils/preactivation';
-import { LoginService } from './services/login-service/login.service';
 import { JobBrowsingComponent } from './components/job-browsing/job-browsing.component';
 import {RegisterFormComponent} from './components/register-form/register-form.component';
 import { AddJobComponent } from './components/add-job/add-job.component';
@@ -14,7 +12,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 const routes: Routes = [
     {
       path: '',
-      redirectTo: 'login',
+      redirectTo: 'dashboard',
       pathMatch: 'full',
     },
     {
@@ -30,6 +28,14 @@ const routes: Routes = [
       path: 'jobs',
       component: JobBrowsingComponent
     },
+    {
+      path: 'myJobs',
+      component: JobBrowsingComponent
+    },
+    {
+      path: 'assignedJobs',
+      component: JobBrowsingComponent
+    },
   {
     path: 'register',
     component: RegisterFormComponent
@@ -43,7 +49,7 @@ const routes: Routes = [
     component: UserProfileComponent
   },
   {
-    path: 'viewJob',
+    path: 'viewJob/:id',
     component: ViewJobComponent
   },
   {

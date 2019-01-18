@@ -39,37 +39,37 @@ export class AddJobComponent implements OnInit {
   }
 
   isValid(job: Job) {
-    return job.datePublished != null &&
-    job.description != null &&
-    job.requirements != null &&
-    job.title != null;
+    // return job.datePublished != null &&
+    // job.description != null &&
+    // job.requirements != null &&
+    // job.title != null;
   }
 
   createJob() {
-    let job = new Job();
-    job.owner = this.owner;
-    job.photo = this.photo;
-    job.title = this.title;
-    job.type = this.type;
-    job.requirements = this.requirements;
-    job.description = this.description;
-    job.datePublished = this.datePublished;
-    console.log(job);
-    if (this.isValid(job)) {
-      this.service.postJob(job).subscribe(data => {
-        this.toastr.success('The job has been successfully created',"",{
-          "closeButton": true,
-          "positionClass": "toast-top-center",
-          "tapToDismiss": true});
-        this.router.navigate(['/dashboard']);
-      });
-    }
-    else {
-      this.toastr.error('Job ' + job.title + ' was not created. Please input values for all mandatory fields.',"",{
-        "closeButton": true,
-        "positionClass": "toast-top-center",
-        "tapToDismiss": true});
-    }
+    // let job = new Job();
+    // job.owner = this.owner;
+    // job.photo = this.photo;
+    // job.title = this.title;
+    // job.type = this.type;
+    // job.requirements = this.requirements;
+    // job.description = this.description;
+    // job.datePublished = this.datePublished;
+    // console.log(job);
+    // if (this.isValid(job)) {
+    //   this.service.postJob(job).subscribe(data => {
+    //     this.toastr.success('The job has been successfully created',"",{
+    //       "closeButton": true,
+    //       "positionClass": "toast-top-center",
+    //       "tapToDismiss": true});
+    //     this.router.navigate(['/dashboard']);
+    //   });
+    // }
+    // else {
+    //   this.toastr.error('Job ' + job.title + ' was not created. Please input values for all mandatory fields.',"",{
+    //     "closeButton": true,
+    //     "positionClass": "toast-top-center",
+    //     "tapToDismiss": true});
+    // }
   }
 
 }
