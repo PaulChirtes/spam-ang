@@ -20,6 +20,11 @@ export class JobService {
     return this.http.get<Job[]>(url);
   }
 
+  public getJobsByType(type){
+    var url = `${environment.apiUrl}/jobsByType/${type}`;
+    return this.http.get<Job[]>(url);
+  }
+
   public getAssignedJobs(): Observable<Job[]> {
     var url = `${environment.apiUrl}/assignedJobs`;
     var httpOptions = {
@@ -51,6 +56,14 @@ export class JobService {
 
   public apply(id:number){
     var url = `${environment.apiUrl}/applyToJob/${id}`;
+    var httpOptions = {
+      headers: new HttpHeaders({'token': this.service.getJwtToken()})
+    };
+    return this.http.put(url, null, httpOptions);
+  }
+
+  public unapply(id:number){
+    var url = `${environment.apiUrl}/unapplyToJob/${id}`;
     var httpOptions = {
       headers: new HttpHeaders({'token': this.service.getJwtToken()})
     };

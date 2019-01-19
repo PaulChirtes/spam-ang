@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router'
 import { AuthDataStorage } from 'src/app/security/auth-data-storage';
 import { UserType } from 'src/app/shared/data-types/user-type.enum';
+import { JobType } from 'src/app/shared/data-types/job-type.enum';
 
 @Component({
   selector: 'app-dashboard',
@@ -51,6 +52,21 @@ export class DashboardComponent implements OnInit {
   goToAssignedJobs(){
     if(this.user!=null && this.user.UserType===UserType.Client){
       this.router.navigate(["/assignedJobs"])
+    }
+  }
+
+  goToJobsByType(type){
+    this.router.navigate(["/jobsByType/"+this.getType(type)])
+  }
+
+  getType(type): JobType{
+    switch(type){
+      case "School": return JobType.School;
+      case "Sport": return JobType.Sport;
+      case "Food": return JobType.Food;
+      case "Photography": return JobType.Photography;
+      case "Other": return JobType.Other;
+      default: return null;
     }
   }
 

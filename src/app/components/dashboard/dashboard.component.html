@@ -1,10 +1,10 @@
 <app-header></app-header>
 <div class="header2">
-    <div class="img1"></div>
-    <div class="img2"></div>
-    <div class="img3"></div>
-    <div class="img4"></div>
-    <div class="img5"></div>
+    <div class="img1" (click)="goToJobsByType('Other')"></div>
+    <div class="img2" (click)="goToJobsByType('Photography')"></div>
+    <div class="img3" (click)="goToJobsByType('Sport')"></div>
+    <div class="img4" (click)="goToJobsByType('Food')"></div>
+    <div class="img5" (click)="goToJobsByType('School')"></div>
     <a (click)="goToAllJobs()" class="view">{{allJobsText}}</a>
     <a (click)="goToAssignedJobs()" *ngIf="!isProvider && user!=null" class="view">View Assigned jobs</a>
     <button (click)="goToAddJob()" *ngIf="canAdd" mat-flat-button class="button item">

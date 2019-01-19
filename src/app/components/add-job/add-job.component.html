@@ -15,6 +15,36 @@
       <textarea matInput [(ngModel)]="description" placeholder="Description"></textarea>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-select required placeholder="Job type" [(ngModel)]="jobType">
+        <mat-option value="School">School  </mat-option>
+        <mat-option value="Sport">Sport </mat-option>
+        <mat-option value="Food">Food  </mat-option>
+        <mat-option value="Photography">Photography </mat-option>
+        <mat-option value="Other">Other  </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="column">
+      <form class="skill-form">
+        <mat-form-field class="skill-input">
+          <input matInput type="text" placeholder="New skill" name="skillText" [(ngModel)]="currentSkill">
+        </mat-form-field>
+      </form>
+      <button (click)="submit()" mat-flat-button class="submit-btn" >Add skill</button>
+    </div>
+
+    <mat-grid-list  cols ="3" rowHeight="50px">
+      <mat-grid-tile class="col view-skills" *ngFor="let skill of skillList">
+        <div class="select-answer">
+          <label class="skill-value"> {{skill}} <br> </label>
+        </div>
+        <button mat-icon-button color="primary" (click)="deleteSkill(skill)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+
     <button (click)="createJob()" mat-flat-button class="register-button">
       Create
     </button>

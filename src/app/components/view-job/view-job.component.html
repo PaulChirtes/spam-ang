@@ -11,12 +11,12 @@
       <p><span>Offered by: </span>{{job.Owner?.UserName}}</p>
       <p><span>Owner email: </span>{{job.Owner?.Email}}</p>
       <p *ngIf="job.Owner?.PhoneNumber && job.Owner?.PhoneNumber!=''"><span>Owner number: </span>{{job.Owner?.PhoneNumber}}</p>
+      <p><span>Job Type: </span>{{getStringValue(job.Type)}}</p>
       <p><span>Job description: </span>{{job.Description}}</p>
-      <!-- <p><span>Requirements: </span></p>
+            <p><span>Requirements: </span></p>
       <mat-list class="requirements">
-          <mat-list-item class="list-item" *ngFor="let req of this.job.requirements">{{req}}</mat-list-item>
-        </mat-list> -->
-      <!-- <p><span>Published: </span>{{this.job.datePublished}}</p> -->
+          <mat-list-item class="list-item" *ngFor="let req of this.job.Skills">{{req}}</mat-list-item>
+        </mat-list>
   </div>
   <div class="info" *ngIf="job.Assigne!=null">
     <p><span>Assigned to: </span>{{job.Assigne?.UserName}}</p>
@@ -27,5 +27,7 @@
   <div class="right-side">
     <img class="photo" src="{{this.job.photo}}">
     <div class="button" *ngIf="canApply" (click)="apply()">APPLY</div>
+    <div class="button" *ngIf="canUnapply" (click)="unapply()">UNAPPLY</div>
+    <div class="make-available-button" *ngIf="canMakeFree" (click)="makeFree()">Make it available</div>
   </div>
 </div>
