@@ -25,6 +25,26 @@
       </mat-select>
     </mat-form-field>
 
+    <div class="column">
+      <form class="skill-form">
+        <mat-form-field class="skill-input">
+          <input matInput type="text" placeholder="New skill" name="skillText" [(ngModel)]="currentSkill">
+        </mat-form-field>
+      </form>
+      <button (click)="submit()" mat-flat-button class="submit-btn" >Add skill</button>
+    </div>
+
+    <mat-grid-list  cols ="3" rowHeight="50px">
+      <mat-grid-tile class="col view-skills" *ngFor="let skill of skillList">
+        <div class="select-answer">
+          <label class="skill-value"> {{skill}} <br> </label>
+        </div>
+        <button mat-icon-button color="primary" (click)="deleteSkill(skill)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+
     <button (click)="createJob()" mat-flat-button class="register-button">
       Create
     </button>

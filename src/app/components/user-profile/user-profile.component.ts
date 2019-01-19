@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../../shared/data-types/User';
-import {Skill} from '../../shared/data-types/Skill';
 import {FormControl} from '@angular/forms';
 import {UserDetails} from '../../shared/data-types/UserDetails';
 import {UserService} from '../../services/user-service/user.service';
 import { UserType } from 'src/app/shared/data-types/user-type.enum';
-import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { Router } from '@angular/router';
 
 @Component({
@@ -83,7 +80,7 @@ export class UserProfileComponent implements OnInit {
     userDetails.PhoneNumber = this.phoneNo;
     userDetails.Id = this.user.Id;
     userDetails.Skills = this.isClient ? this.skillList : null;
-    this.userService.saveProfile(userDetails).subscribe(data=>{
+    this.userService.saveProfile(userDetails).subscribe(()=>{
       this.router.navigate(["/dashboard"]);
     });
   }

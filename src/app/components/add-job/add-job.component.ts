@@ -17,6 +17,8 @@ export class AddJobComponent implements OnInit {
     title: string;
     description: string;
     jobType: string;
+    skillList: string[] = [];
+    currentSkill: string;
 
   constructor(public service : JobService,
               private router : Router, 
@@ -30,6 +32,7 @@ export class AddJobComponent implements OnInit {
     job.Title = this.title;
     job.Description = this.description;
     job.Type = this.getType();
+    job.Skills = this.skillList;
     if (this.isValid(job)) {
       this.service.postJob(job).subscribe(data => {
         this.toastr.success('The job has been successfully created',"",{
@@ -59,6 +62,19 @@ export class AddJobComponent implements OnInit {
       case "Photography": return JobType.Photography;
       case "Other": return JobType.Other;
       default: return null;
+    }
+  }
+
+  submit(): void {
+    this.skillList.push(this.currentSkill);
+
+    this.currentSkill = '';
+  }
+
+  deleteSkill(s: string): void {
+    const index = this.skillList.indexOf(s);
+    if(index >= 0){
+      this.skillList.splice(index, 1);
     }
   }
 

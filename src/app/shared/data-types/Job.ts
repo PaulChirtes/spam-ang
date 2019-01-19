@@ -9,4 +9,5 @@ export class Job{
     Title: string;
     Description: string;
     Type: JobType;
+    Skills: string[];
 }
