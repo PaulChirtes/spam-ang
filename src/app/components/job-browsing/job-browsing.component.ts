@@ -33,6 +33,8 @@ export class JobBrowsingComponent implements OnInit {
       this.getJobsByType();
     }
   }
+
+
   getJobsByType(): any {
     this.route.params.subscribe( params =>{
       var type = params['type'];
@@ -42,7 +44,11 @@ export class JobBrowsingComponent implements OnInit {
           this.jobs.forEach(job => job.photo = this.photo);
           console.log(data)
           this.jobTitle+=" of type:"+ this.getStringValue(+type);
+        },err=>{
+          this.router.navigate(["/404"]);
         })
+      } else{
+        this.router.navigate(["/404"]);
       }
     });
   }
@@ -63,6 +69,8 @@ export class JobBrowsingComponent implements OnInit {
     this.jobService.getAssignedJobs().subscribe(data => {
       this.jobs = data;
       this.jobs.forEach(job => job.photo = this.photo);
+    },err=>{
+      this.router.navigate(["/404"]);
     });
   }
 
@@ -70,6 +78,8 @@ export class JobBrowsingComponent implements OnInit {
     this.jobService.getMyJobs().subscribe(data => {
       this.jobs = data;
       this.jobs.forEach(job => job.photo = this.photo);
+    }, err=>{
+      this.router.navigate(["/404"]);
     });
   }
 
@@ -77,6 +87,8 @@ export class JobBrowsingComponent implements OnInit {
     this.jobService.getJobs().subscribe(data => {
       this.jobs = data;
       this.jobs.forEach(job => job.photo = this.photo);
+    },err=>{
+      this.router.navigate(["/404"]);
     });
   }
 

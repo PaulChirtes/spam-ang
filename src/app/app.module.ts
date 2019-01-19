@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {
   MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
-  MatToolbarModule, MatTooltipModule, MatIconModule, MatCardModule, MatGridListModule
+  MatToolbarModule, MatTooltipModule, MatIconModule, MatCardModule, MatGridListModule, MatDialogModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,6 +23,7 @@ import {MatListModule} from '@angular/material/list';
 import { ViewJobComponent } from './components/view-job/view-job.component';
 import { CommonModule } from '@angular/common';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { ReviewComponent } from './components/review/review.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     AddJobComponent,
     UserProfileComponent,
     ViewJobComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ReviewComponent
   ],
   imports: [
     SharedModule,
@@ -60,12 +62,14 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     MatGridListModule,
     MatIconModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   exports: [SharedModule,
   CommonModule,
 BrowserModule,],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ReviewComponent]
 })
 export class AppModule { }

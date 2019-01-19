@@ -23,6 +23,12 @@
     <p><span>Assigne email: </span>{{job.Assigne?.Email}}</p>
     <p *ngIf="job.Assigne?.PhoneNumber && job.Assigne?.PhoneNumber!=''"><span>Assigne number: </span>{{job.Assigne?.PhoneNumber}}</p>
   </div>
+
+  <div class="info" *ngIf="job.Assigne!=null">
+    <p *ngIf="job.AssigneeReview!=null && job.AssigneeReview!=''"><span>Assignee Review: </span>{{job.AssigneeReview}}</p>
+    <p *ngIf="job.OwnerReview!=null && job.OwnerReview!=''"><span>Owner Review: </span>{{job.OwnerReview}}</p>
+  </div>
+  <div class="review-button" *ngIf="canReview" (click)="review()">Add/modify review</div>
 </mat-card>
   <div class="right-side">
     <img class="photo" src="{{this.job.photo}}">

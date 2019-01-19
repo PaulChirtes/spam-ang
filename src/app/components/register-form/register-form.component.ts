@@ -41,7 +41,7 @@ export class RegisterFormComponent implements OnInit {
             "tapToDismiss": true});
           this.router.navigate(["/dashboard"]);
         }, err => {
-          this.toastr.error('Invalid registration!',"",{
+          this.toastr.error(err.error.Message,"",{
             "closeButton": true,
             "positionClass": "toast-bottom-right",
             "tapToDismiss": true});
