@@ -4,10 +4,11 @@ import { JobType } from "./job-type.enum";
 
 export class Job{
     Id: number;
-    asignee: UserDetails;
+    Assigne: UserDetails;
     photo: string;
     Title: string;
     Description: string;
     Type: JobType;
     Skills: string[];
+    Owner: UserDetails;
 }

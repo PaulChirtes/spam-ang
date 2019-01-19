@@ -16,6 +16,8 @@ export class ViewJobComponent implements OnInit {
   job: Job = new Job();
   photo= "../../../assets/images/job-image-moque.png";
   canApply = false;
+  canUnapply = false;
+  canMakeFree = false;
   constructor( private jobService: JobService,
               private route: ActivatedRoute,
               private authStorage: AuthDataStorage,
@@ -27,13 +29,17 @@ export class ViewJobComponent implements OnInit {
       if(id){
         this.jobService.getById(id).subscribe(data=>{
           this.job=data;
+          this.job.photo = this.photo;        
+          var user = this.authStorage.getUser();
+
+          this.canApply = user!=null && user.UserType===UserType.Client && this.job.Assigne==null;
+          console.log(user);
           console.log(this.job);
-          this.job.photo = this.photo;
+          this.canMakeFree = user!=null && user.UserType==UserType.Provider && this.job.Owner.Email===user.Email && this.job.Assigne!=null;
+          this.canUnapply = user!=null && user.UserType==UserType.Client && this.job.Assigne!=null && this.job.Assigne.Email===user.Email;
+          console.log(this.job.Assigne!=null)
         })
       }
-
-      var user = this.authStorage.getUser();
-      this.canApply = user!=null && user.UserType===UserType.Client;
 
     });
   }
@@ -60,6 +66,22 @@ export class ViewJobComponent implements OnInit {
       case JobType.Photography : return "Photography";
       case JobType.Other: return "Other";
       default: return null;
+    }
+  }
+
+  unapply(){
+    if(this.canUnapply){
+      this.jobService.unapply(this.job.Id).subscribe(_=>{
+        this.router.navigate(["/dashboard"]);
+      });
+    }
+  }
+
+  makeFree(){
+    if(this.canMakeFree){
+      this.jobService.unapply(this.job.Id).subscribe(_=>{
+        this.router.navigate(["/dashboard"]);
+      });
     }
   }
 

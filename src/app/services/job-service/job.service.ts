@@ -61,4 +61,12 @@ export class JobService {
     };
     return this.http.put(url, null, httpOptions);
   }
+
+  public unapply(id:number){
+    var url = `${environment.apiUrl}/unapplyToJob/${id}`;
+    var httpOptions = {
+      headers: new HttpHeaders({'token': this.service.getJwtToken()})
+    };
+    return this.http.put(url, null, httpOptions);
+  }
 }
