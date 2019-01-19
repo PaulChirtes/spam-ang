@@ -8,3 +8,7 @@
     <app-job-card [job]="job"></app-job-card>
   </div>
 </div>
+
+<div *ngIf="!check" class="ifNoJobs">
+  <p>You have no assigned jobs for the the moment</p>
+</div>

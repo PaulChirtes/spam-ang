@@ -4,6 +4,7 @@ import { JobService } from 'src/app/services/job-service/job.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthDataStorage } from 'src/app/security/auth-data-storage';
 import { UserType } from 'src/app/shared/data-types/user-type.enum';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-view-job',
@@ -17,7 +18,8 @@ export class ViewJobComponent implements OnInit {
   constructor( private jobService: JobService,
               private route: ActivatedRoute,
               private authStorage: AuthDataStorage,
-              public router: Router) { }
+              public router: Router,
+              private toastr : ToastrService) { }
   ngOnInit() {
     this.route.params.subscribe( params =>{
       var id = params['id'];
@@ -38,7 +40,17 @@ export class ViewJobComponent implements OnInit {
   apply(){
     if(this.canApply){
       this.jobService.apply(this.job.Id).subscribe(_=>{
+        this.toastr.success('You applied to job ' + this.job.Title,"",{
+          "closeButton": true,
+          "positionClass": "toast-bottom-right",
+          "tapToDismiss": true});
         this.router.navigate(["/dashboard"]);
+      },
+      err => {
+        this.toastr.error('Something went wrong',"",{
+          "closeButton": true,
+          "positionClass": "toast-bottom-right",
+          "tapToDismiss": true});
       })
     }
   }

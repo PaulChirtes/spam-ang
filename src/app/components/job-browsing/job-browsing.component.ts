@@ -12,7 +12,8 @@ export class JobBrowsingComponent implements OnInit {
   category="";
   photo= "../../../assets/images/job-image-moque.png";
   jobs: Job[]=new Array<Job>();
-  
+  check= true;
+
   constructor(public router:Router,
               private jobService: JobService) { }
 
@@ -27,7 +28,8 @@ export class JobBrowsingComponent implements OnInit {
     }
   }
 
-  getAssignedJobs() {    
+  getAssignedJobs() {  
+    this.checkIfJobsExist();  
     this.jobService.getAssignedJobs().subscribe(data => {
       this.jobs = data;
       this.jobs.forEach(job => job.photo = this.photo);
@@ -50,5 +52,11 @@ export class JobBrowsingComponent implements OnInit {
 
   viewJob(id: number){
     this.router.navigate(['/viewJob/'+id.toString()]);
+  }
+
+  checkIfJobsExist(){
+    if(this.jobs.length == 0){
+      this.check= false;
+    }
   }
 }

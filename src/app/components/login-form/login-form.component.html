@@ -3,7 +3,6 @@
     <div class="logo">
     </div>
     <div class="formLogin">
-      <div *ngIf="error" class="err">Invalid username or password! </div>
     
       <div class="form-field-container">
         <mat-form-field appearance="outline" class="form-field">
@@ -22,7 +21,7 @@
       <button (click)="logIn()" mat-flat-button class="login-button">
         Log In
       </button>
-      <p class="sign-up">Don't have an account? Sign up <u (click)=goToRegister()>here</u></p>
+      <p class="sign-up">Don't have an account? Sign up <u (click)=goToRegister() class="sign-up-here">here</u></p>
     </div>
 
   </div>
