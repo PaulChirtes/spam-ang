@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {UserService} from '../../services/user-service/user.service';
 import { UserType } from 'src/app/shared/data-types/user-type.enum';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-register-form',
@@ -17,7 +18,7 @@ export class RegisterFormComponent implements OnInit {
   phoneNo: string;
   userType: string;
 
-  constructor(private service: UserService, public router: Router) {}
+  constructor(private service: UserService, public router: Router, private toastr : ToastrService) {}
   private userForm: FormGroup;
 
   ngOnInit() {
@@ -34,9 +35,16 @@ export class RegisterFormComponent implements OnInit {
     const user: User = this.getUser();
     this.service.register(user)
         .subscribe(_ => {
+          this.toastr.success('Welcome to our application',"",{
+            "closeButton": true,
+            "positionClass": "toast-bottom-right",
+            "tapToDismiss": true});
           this.router.navigate(["/dashboard"]);
         }, err => {
-          console.log(err);
+          this.toastr.error('Invalid registration!',"",{
+            "closeButton": true,
+            "positionClass": "toast-bottom-right",
+            "tapToDismiss": true});
         });
   }
 
