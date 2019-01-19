@@ -44,7 +44,9 @@ export class ViewJobComponent implements OnInit {
           this.canMakeFree = user!=null && user.UserType==UserType.Provider && this.job.Owner.Email===user.Email && this.job.Assigne!=null;
           this.canUnapply = user!=null && user.UserType==UserType.Client && this.job.Assigne!=null && this.job.Assigne.Email===user.Email;
           this.canReview = user!=null && (user.Email==this.job.Owner.Email || user.Email == this.job.Assigne.Email);
-        })
+        }, err=>{
+          this.router.navigate(["/404"]);
+        });
       }
 
     });
@@ -60,7 +62,7 @@ export class ViewJobComponent implements OnInit {
         this.router.navigate(["/dashboard"]);
       },
       err => {
-        this.toastr.error('Something went wrong',"",{
+        this.toastr.error(err.error.Message,"",{
           "closeButton": true,
           "positionClass": "toast-bottom-right",
           "tapToDismiss": true});
