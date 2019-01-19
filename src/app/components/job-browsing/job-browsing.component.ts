@@ -15,7 +15,7 @@ export class JobBrowsingComponent implements OnInit {
   jobs: Job[]=new Array<Job>();
   jobTitle =  "Jobs"
   
-  check= true;
+  existJobs= true;
 
   constructor(public router:Router,
               private jobService: JobService,
@@ -59,10 +59,12 @@ export class JobBrowsingComponent implements OnInit {
   }
 
   getAssignedJobs() {  
-    this.checkIfJobsExist();  
     this.jobService.getAssignedJobs().subscribe(data => {
       this.jobs = data;
       this.jobs.forEach(job => job.photo = this.photo);
+      if(this.jobs.length == 0){
+        this.existJobs = false;
+      }
     });
   }
 
@@ -84,9 +86,4 @@ export class JobBrowsingComponent implements OnInit {
     this.router.navigate(['/viewJob/'+id.toString()]);
   }
 
-  checkIfJobsExist(){
-    if(this.jobs.length == 0){
-      this.check= false;
-    }
-  }
 }
