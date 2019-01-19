@@ -11,4 +11,6 @@ export class Job{
     Type: JobType;
     Skills: string[];
     Owner: UserDetails;
+    OwnerReview: string;
+    AssigneeReview: string;
 }
