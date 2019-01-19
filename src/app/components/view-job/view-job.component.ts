@@ -66,7 +66,7 @@ export class ViewJobComponent implements OnInit {
           "closeButton": true,
           "positionClass": "toast-bottom-right",
           "tapToDismiss": true});
-      })
+      });
     }
   }
 
@@ -84,7 +84,17 @@ export class ViewJobComponent implements OnInit {
   unapply(){
     if(this.canUnapply){
       this.jobService.unapply(this.job.Id).subscribe(_=>{
+        this.toastr.success('You unapplied to job ' + this.job.Title,"",{
+          "closeButton": true,
+          "positionClass": "toast-bottom-right",
+          "tapToDismiss": true});
         this.router.navigate(["/dashboard"]);
+      },
+      err => {
+        this.toastr.error('Something went wrong',"",{
+          "closeButton": true,
+          "positionClass": "toast-bottom-right",
+          "tapToDismiss": true});
       });
     }
   }
@@ -92,7 +102,17 @@ export class ViewJobComponent implements OnInit {
   makeFree(){
     if(this.canMakeFree){
       this.jobService.unapply(this.job.Id).subscribe(_=>{
+        this.toastr.success('You made available job ' + this.job.Title,"",{
+          "closeButton": true,
+          "positionClass": "toast-bottom-right",
+          "tapToDismiss": true});
         this.router.navigate(["/dashboard"]);
+      },
+      err => {
+        this.toastr.error('Something went wrong',"",{
+          "closeButton": true,
+          "positionClass": "toast-bottom-right",
+          "tapToDismiss": true});
       });
     }
   }
