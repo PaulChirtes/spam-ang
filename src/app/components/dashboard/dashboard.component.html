@@ -1,10 +1,10 @@
 <app-header></app-header>
 <div class="header2">
-    <div class="img1" (click)="goToJobsByType('Other')"></div>
-    <div class="img2" (click)="goToJobsByType('Photography')"></div>
-    <div class="img3" (click)="goToJobsByType('Sport')"></div>
-    <div class="img4" (click)="goToJobsByType('Food')"></div>
-    <div class="img5" (click)="goToJobsByType('School')"></div>
+    <div matTooltip="Others" class="img1" (click)="goToJobsByType('Other')"></div>
+    <div matTooltip="Photography" class="img2" (click)="goToJobsByType('Photography')"></div>
+    <div matTooltip="Sport" class="img3" (click)="goToJobsByType('Sport')"></div>
+    <div matTooltip="Food" class="img4" (click)="goToJobsByType('Food')"></div>
+    <div matTooltip="School" class="img5" (click)="goToJobsByType('School')"></div>
     <a (click)="goToAllJobs()" class="view">{{allJobsText}}</a>
     <a (click)="goToAssignedJobs()" *ngIf="!isProvider && user!=null" class="view">View Assigned jobs</a>
     <button (click)="goToAddJob()" *ngIf="canAdd" mat-flat-button class="button item">

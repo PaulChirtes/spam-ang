@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {
   MatButtonModule, MatFormFieldModule, MatAutocompleteModule, MatInputModule, MatDividerModule, MatSelectModule,
-  MatToolbarModule, MatTooltipModule, MatIconModule, MatCardModule, MatGridListModule, MatDialogModule
+  MatToolbarModule, MatIconModule, MatCardModule, MatGridListModule, MatDialogModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +24,7 @@ import { ViewJobComponent } from './components/view-job/view-job.component';
 import { CommonModule } from '@angular/common';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { ReviewComponent } from './components/review/review.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ReviewComponent } from './components/review/review.component';
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule,
   ],
   exports: [SharedModule,
   CommonModule,

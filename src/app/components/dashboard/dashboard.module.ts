@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {MatFormFieldModule, MatInputModule} from '@angular/material'
 import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MatFormFieldModule,
-    SharedModule
+    SharedModule,
+    MatTooltipModule
   ]
 })
 export class DashboardModule { }
