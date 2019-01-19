@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthDataStorage } from 'src/app/security/auth-data-storage';
 import { UserType } from 'src/app/shared/data-types/user-type.enum';
 import { JobType } from 'src/app/shared/data-types/job-type.enum';
-import { ToastrService } from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ReviewComponent } from '../review/review.component';
 import { Review } from 'src/app/shared/data-types/review';
@@ -53,10 +53,14 @@ export class ViewJobComponent implements OnInit {
   apply(){
     if(this.canApply){
       this.jobService.apply(this.job.Id).subscribe(_=>{
+        this.toastr.success('You applied to job ' + this.job.Title,"",{
+          "closeButton": true,
+          "positionClass": "toast-bottom-right",
+          "tapToDismiss": true});
         this.router.navigate(["/dashboard"]);
-      }, err=>{
-        console.log(err);
-        this.toastr.error(err.error.Message,"",{
+      },
+      err => {
+        this.toastr.error('Something went wrong',"",{
           "closeButton": true,
           "positionClass": "toast-bottom-right",
           "tapToDismiss": true});

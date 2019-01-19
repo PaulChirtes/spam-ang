@@ -27,8 +27,8 @@
 .logo{
     margin-top: 3%;
     background-image: url("../../../assets/images/main-icon.png");
-    height: 43.5%;
-    width: 44%;
+    height: 43%;
+    width: 50%;
     background-size: cover;
   }
 
@@ -92,4 +92,8 @@
   }
   .sign-up{
     color: $light-blue;
+  }
+
+  .sign-up-here{
+    cursor: pointer;
   }

@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { LoginService } from 'src/app/services/login-service/login.service';
 import { AuthDataStorage } from 'src/app/security/auth-data-storage';
 import { Router } from '@angular/router'
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-form',
@@ -9,13 +10,13 @@ import { Router } from '@angular/router'
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  error = '';
   email: string;
   password: string;
 
   constructor(private authDataStorage: AuthDataStorage,
               private service: LoginService,
-              private router : Router) { }
+              private router : Router,
+              private toastr : ToastrService) { }
 
   ngOnInit() {
   }
@@ -29,8 +30,12 @@ export class LoginFormComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
       err => {
-        this.error = err;
-      });
+        this.toastr.error('Invalid username or password!',"",{
+          "closeButton": true,
+          "positionClass": "toast-bottom-right",
+          "tapToDismiss": true});
+      }
+      );
   }
 
   @HostListener('document:keypress', ['$event'])
@@ -40,7 +45,7 @@ export class LoginFormComponent implements OnInit {
     }
   }
 
-  private goToRegister() {
+  goToRegister() {
     this.router.navigate(["/register"]);
   }
 }
