@@ -11,12 +11,8 @@
       <p><span>Offered by: </span>{{job.Owner?.UserName}}</p>
       <p><span>Owner email: </span>{{job.Owner?.Email}}</p>
       <p *ngIf="job.Owner?.PhoneNumber && job.Owner?.PhoneNumber!=''"><span>Owner number: </span>{{job.Owner?.PhoneNumber}}</p>
+      <p><span>Job Type: </span>{{getStringValue(job.Type)}}</p>
       <p><span>Job description: </span>{{job.Description}}</p>
-      <!-- <p><span>Requirements: </span></p>
-      <mat-list class="requirements">
-          <mat-list-item class="list-item" *ngFor="let req of this.job.requirements">{{req}}</mat-list-item>
-        </mat-list> -->
-      <!-- <p><span>Published: </span>{{this.job.datePublished}}</p> -->
   </div>
   <div class="info" *ngIf="job.Assigne!=null">
     <p><span>Assigned to: </span>{{job.Assigne?.UserName}}</p>

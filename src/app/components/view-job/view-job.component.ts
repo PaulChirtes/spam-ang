@@ -4,6 +4,7 @@ import { JobService } from 'src/app/services/job-service/job.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthDataStorage } from 'src/app/security/auth-data-storage';
 import { UserType } from 'src/app/shared/data-types/user-type.enum';
+import { JobType } from 'src/app/shared/data-types/job-type.enum';
 
 @Component({
   selector: 'app-view-job',
@@ -40,6 +41,17 @@ export class ViewJobComponent implements OnInit {
       this.jobService.apply(this.job.Id).subscribe(_=>{
         this.router.navigate(["/dashboard"]);
       })
+    }
+  }
+
+  getStringValue(jobType:JobType){
+    switch(jobType){
+      case JobType.School : return "School";
+      case JobType.Sport: return "Sport";
+      case JobType.Food: return "Food";
+      case JobType.Photography : return "Photography";
+      case JobType.Other: return "Other";
+      default: return null;
     }
   }
 

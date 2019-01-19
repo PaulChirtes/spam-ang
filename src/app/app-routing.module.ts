@@ -36,6 +36,10 @@ const routes: Routes = [
       path: 'assignedJobs',
       component: JobBrowsingComponent
     },
+    {
+      path: 'jobsByType/:type',
+      component: JobBrowsingComponent
+    },
   {
     path: 'register',
     component: RegisterFormComponent
