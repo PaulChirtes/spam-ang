@@ -16,6 +16,7 @@ import { SharedModule } from './shared/shared.module';
 import { JobBrowsingComponent } from './components/job-browsing/job-browsing.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { AddJobComponent } from './components/add-job/add-job.component';
+import { UpdateJobComponent } from './components/update-job/update-job.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
@@ -36,10 +37,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     LoginFormComponent,
     RegisterFormComponent,
     AddJobComponent,
+    UpdateJobComponent,
     UserProfileComponent,
     ViewJobComponent,
     ErrorPageComponent,
-    ReviewComponent
+    ReviewComponent,
   ],
   imports: [
     SharedModule,

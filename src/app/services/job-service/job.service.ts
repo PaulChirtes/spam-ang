@@ -54,6 +54,14 @@ export class JobService {
     return this.http.post(url, job, httpOptions);
   }
 
+  public putJob(job: Job){
+    var url = `${environment.apiUrl}/updateJob`;
+    var httpOptions = {
+      headers: new HttpHeaders({'token': this.service.getJwtToken()})
+    };
+    return this.http.put(url, job, httpOptions);
+  }
+
   public apply(id:number){
     var url = `${environment.apiUrl}/applyToJob/${id}`;
     var httpOptions = {

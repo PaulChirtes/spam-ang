@@ -23,6 +23,8 @@ export class ViewJobComponent implements OnInit {
   canUnapply = false;
   canMakeFree = false;
   canReview = false;
+  user: any;
+  canUpdate= false;
 
   constructor( private jobService: JobService,
               private route: ActivatedRoute,
@@ -32,6 +34,10 @@ export class ViewJobComponent implements OnInit {
               private dialog: MatDialog,
               private reviewService: ReviewService) { }
   ngOnInit() {
+    this.user = this.authStorage.getUser();
+    if(this.isAdmin()){
+      this.canUpdate=true;
+    }
     this.route.params.subscribe( params =>{
       var id = params['id'];
       if(id){
@@ -155,6 +161,15 @@ export class ViewJobComponent implements OnInit {
         }
       });
     }
+  }
+
+  isAdmin(): boolean {
+    return this.user!=null && this.user.UserType === UserType.Provider;
+  }
+
+  goToUpdate() {
+    //id= this.job.Id;
+    this.router.navigate(["/updateJob/"+this.job.Id.toString()]);
   }
 
 }
